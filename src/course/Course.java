@@ -5,10 +5,12 @@ public class Course {
     String courseName;
     String instructor;
     String date;
-    String minCandidateCount;
-    String maxCandidateCount;
+    int minCandidateCount;
+    int maxCandidateCount;
 
-    public Course(String courseName, String instructor, String date, String minCandidateCount, String maxCandidateCount) {
+    String courseStatus;
+
+    public Course(String courseName, String instructor, String date, int minCandidateCount, int maxCandidateCount) {
         this.courseName = courseName;
         this.instructor = instructor;
         this.date = date;
@@ -18,6 +20,30 @@ public class Course {
 
     public String getCourseId() {
         return courseId;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public String getInstructor() {
+        return instructor;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public int getMinCandidateCount() {
+        return minCandidateCount;
+    }
+
+    public int getMaxCandidateCount() {
+        return maxCandidateCount;
+    }
+
+    public String getCourseStatus() {
+        return courseStatus;
     }
 
     public void setCourseId(String courseId) {
