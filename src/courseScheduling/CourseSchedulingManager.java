@@ -20,7 +20,7 @@ public class CourseSchedulingManager {
     EmployeeDirectory employeeDirectory = new EmployeeDirectory();
 
     public Course addCourse(Course course) {
-        String id = "OFFERING"+course.getCourseName()+course.getInstructor();
+        String id = "OFFERING-"+course.getCourseName()+"-"+course.getInstructor();
         course.setCourseId(id);
         courseDirectory.add(course);
         return course;
@@ -30,11 +30,14 @@ public class CourseSchedulingManager {
         Course courseToRegister = courseDirectory.getCourse(courseId);
         employeeDirectory.findOrInsert(email);
         String registrationId = "REG-COURSE-"+Arrays.stream(email.split("@")).findFirst()
-                +"-"+courseToRegister;
+                +"-"+courseToRegister.getCourseName();
         if(courseRegistry.getValidRegistrations(courseId).size() > courseToRegister.getMaxCandidateCount())
             throw new CourseFullException();
-        else
-            return new Registration(registrationId, courseId, email, RegistrationStatus.ACCEPTED);
+        else {
+            Registration newRegistration = new Registration(registrationId, courseId, email, RegistrationStatus.ACCEPTED);
+            courseRegistry.add(newRegistration);
+            return newRegistration;
+        }
     }
 
     public List<Registration> allot(String courseId) {

@@ -2,6 +2,7 @@ package command;
 
 import course.Course;
 import courseScheduling.CourseSchedulingManager;
+import exceptions.InvalidInputException;
 import outputHandler.OutputHandler;
 
 public class AddCourseCommand implements Command {
@@ -13,7 +14,9 @@ public class AddCourseCommand implements Command {
     }
 
     @Override
-    public void execute(String[] commandStrings) {
+    public void execute(String[] commandStrings) throws InvalidInputException {
+        if(commandStrings.length<6)
+            throw new InvalidInputException();
         Course course = new Course(commandStrings[1], commandStrings[2], commandStrings[3],
                 Integer.parseInt(commandStrings[4]), Integer.parseInt(commandStrings[5]));
         course = courseSchedulingManager.addCourse(course);

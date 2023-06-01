@@ -6,10 +6,11 @@ import exceptions.CourseFullException;
 import exceptions.InvalidInputException;
 import outputHandler.OutputHandler;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class CommandFactory {
-    Map<String, Command> commandMap;
+    Map<String, Command> commandMap = new HashMap<>();
 
     public CommandFactory(CourseSchedulingManager courseSchedulingManager, OutputHandler outputHandler) {
         commandMap.put("ADD-COURSE-OFFERING", new AddCourseCommand(courseSchedulingManager, outputHandler));
