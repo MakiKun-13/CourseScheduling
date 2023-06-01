@@ -15,7 +15,7 @@ public class OutputHandler {
              allottedRegistraionList) {
             System.out.println(registration.getRegistrationId()+" "+registration.getEmail()
             +" "+registration.getCourseId()+" "+course.getCourseName()+" "+course.getInstructor()
-            +" "+course.getDate() +" "+ course.getCourseStatus());
+            +" "+course.getDate() +" "+ registration.getRegistrationStatus());
         }
     }
 

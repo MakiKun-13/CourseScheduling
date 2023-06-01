@@ -3,5 +3,6 @@ package registration;
 public enum RegistrationStatus {
     ALLOTTED,
     ACCEPTED,
-    CANCELLED
+    CANCELLED,
+    CANCEL_REJECTED
 }

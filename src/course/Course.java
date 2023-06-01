@@ -50,5 +50,9 @@ public class Course {
     public void setCourseId(String courseId) {
         this.courseId = courseId;
     }
+
+    public void setCourseStatus(CourseStatus courseStatus) {
+        this.courseStatus = courseStatus;
+    }
 }
 
