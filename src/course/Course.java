@@ -1,5 +1,10 @@
 package course;
 
+import java.sql.Time;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 public class Course {
     String courseId;
     String courseName;
@@ -53,6 +58,18 @@ public class Course {
 
     public void setCourseStatus(CourseStatus courseStatus) {
         this.courseStatus = courseStatus;
+    }
+
+    public boolean isExpired() {
+        int dd = Integer.parseInt(date.substring(0, 2));
+        int mm = Integer.parseInt(date.substring(2, 4));
+        int yyyy = Integer.parseInt(date.substring(4));
+        Date courseStartDate = new GregorianCalendar(yyyy, mm - 1, dd).getTime();
+        return courseStartDate.before(new Date());
+    }
+
+    public void expire() {
+        this.courseStatus = CourseStatus.COURSE_CANCELED;
     }
 }
 

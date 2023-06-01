@@ -1,6 +1,7 @@
 package command;
 
 import courseScheduling.CourseSchedulingManager;
+import exceptions.CourseCancelledException;
 import exceptions.CourseFullException;
 import exceptions.InvalidInputException;
 import outputHandler.OutputHandler;
@@ -17,7 +18,7 @@ public class RegisterCommand implements Command {
     }
 
     @Override
-    public void execute(String[] commandStrings) throws CourseFullException, InvalidInputException, ParseException {
+    public void execute(String[] commandStrings) throws CourseFullException, InvalidInputException, ParseException, CourseCancelledException {
         if(commandStrings.length<3)
             throw new InvalidInputException();
         String email = commandStrings[1];
