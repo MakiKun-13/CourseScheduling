@@ -4,9 +4,9 @@ public class Registration {
     String registrationId;
     String courseId;
     String email;
-    String registrationStatus;
+    RegistrationStatus registrationStatus;
 
-    public Registration(String registrationId, String courseId, String email, String registrationStatus) {
+    public Registration(String registrationId, String courseId, String email, RegistrationStatus registrationStatus) {
         this.registrationId = registrationId;
         this.courseId = courseId;
         this.email = email;
@@ -25,11 +25,12 @@ public class Registration {
         return email;
     }
 
-    public String getRegistrationStatus() {
+    public RegistrationStatus getRegistrationStatus() {
         return registrationStatus;
     }
 
-    public void setRegistrationStatus(String registrationStatus) {
+    public void setRegistrationStatus(RegistrationStatus registrationStatus) {
         this.registrationStatus = registrationStatus;
     }
+
 }

@@ -8,7 +8,7 @@ public class Course {
     int minCandidateCount;
     int maxCandidateCount;
 
-    String courseStatus;
+    CourseStatus courseStatus;
 
     public Course(String courseName, String instructor, String date, int minCandidateCount, int maxCandidateCount) {
         this.courseName = courseName;
@@ -16,6 +16,7 @@ public class Course {
         this.date = date;
         this.minCandidateCount = minCandidateCount;
         this.maxCandidateCount = maxCandidateCount;
+        this.courseStatus = CourseStatus.DRAFT;
     }
 
     public String getCourseId() {
@@ -42,7 +43,7 @@ public class Course {
         return maxCandidateCount;
     }
 
-    public String getCourseStatus() {
+    public CourseStatus getCourseStatus() {
         return courseStatus;
     }
 
@@ -50,3 +51,4 @@ public class Course {
         this.courseId = courseId;
     }
 }
+

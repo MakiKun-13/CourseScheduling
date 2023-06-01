@@ -1,7 +1,7 @@
 package command;
 
 import courseScheduling.CourseSchedulingManager;
-import exceptions.CancelRejectedException;
+import exceptions.CancellationRejectedException;
 import exceptions.CourseFullException;
 import exceptions.InvalidInputException;
 import outputHandler.OutputHandler;
@@ -18,14 +18,17 @@ public class CommandFactory {
         commandMap.put("CANCEL", new CancelCommand(courseSchedulingManager, outputHandler));
     }
 
-    public void handleCommand(String input) throws InvalidInputException, CancelRejectedException, CourseFullException {
+    public void handleCommand(String input) throws InvalidInputException, CancellationRejectedException, CourseFullException {
         String[] commandStrings = input.split(" ");
         String commandAction = commandStrings[0];
-        if(commandMap.containsKey(commandAction)) {
+        if (commandMap.containsKey(commandAction)) {
             Command command = commandMap.get(commandAction);
-            command.execute(commandStrings);
-        }
-        else
+            try {
+                command.execute(commandStrings);
+            } catch(Exception e) {
+                System.out.println(e);
+            }
+        } else
             throw new InvalidInputException();
     }
 }

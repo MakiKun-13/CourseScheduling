@@ -1,7 +1,7 @@
 package command;
 
 import courseScheduling.CourseSchedulingManager;
-import exceptions.CancelRejectedException;
+import exceptions.CancellationRejectedException;
 import outputHandler.OutputHandler;
 import registration.Registration;
 
@@ -14,7 +14,7 @@ public class CancelCommand implements Command {
     }
 
     @Override
-    public void execute(String[] commandStrings) throws CancelRejectedException {
+    public void execute(String[] commandStrings) throws CancellationRejectedException {
         String registrationId = commandStrings[1];
         Registration registrationCancelled = courseSchedulingManager.cancel(registrationId);
         outputHandler.displayOutputForCancelRegistration(registrationCancelled);

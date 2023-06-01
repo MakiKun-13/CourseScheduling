@@ -19,7 +19,7 @@ public class AllotCommand implements Command {
         String courseId = commandStrings[1];
         List<Registration> allottedRegistrationList = courseSchedulingManager.allot(courseId);
         if(allottedRegistrationList != null) {
-            outputHandler.displayOutputForAllotment(allottedRegistrationList);
+            outputHandler.displayOutputForAllotment(allottedRegistrationList, courseSchedulingManager.getCourseById(courseId));
         }
     }
 }

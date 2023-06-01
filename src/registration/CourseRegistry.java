@@ -8,12 +8,16 @@ public class CourseRegistry {
         List<Registration> validRegistrations = null;
         for (Registration registration:
              registrations) {
-            if(registration.courseId.equalsIgnoreCase(courseId))
+            if(registration.courseId.equalsIgnoreCase(courseId)) {
                 validRegistrations.add(registration);
+            }
         }
         return validRegistrations;
     }
+
+
+
     public Registration getRegistration(String registrationId) {
-        return null;
+        return registrations.stream().filter(x -> x.registrationId.equalsIgnoreCase(registrationId)).findFirst().get();
     }
 }
