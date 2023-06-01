@@ -29,7 +29,7 @@ public class CourseSchedulingManager {
     public Registration register(String email, String courseId) throws CourseFullException {
         Course courseToRegister = courseDirectory.getCourse(courseId);
         employeeDirectory.findOrInsert(email);
-        String registrationId = "REG-COURSE-"+Arrays.stream(email.split("@")).findFirst()
+        String registrationId = "REG-COURSE-"+email.substring(0, email.indexOf('@'))
                 +"-"+courseToRegister.getCourseName();
         if(courseRegistry.getValidRegistrations(courseId).size() > courseToRegister.getMaxCandidateCount())
             throw new CourseFullException();
