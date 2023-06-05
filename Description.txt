@@ -1,0 +1,20 @@
+A simple command line application, which does the following:
+Add course offering
+Register for the course
+Cancel registration
+Course allotment
+
+Entities:
+1. Course
+2. Employee
+3. Registration
+
+Design Patterns Used:
+1. Factory Method Pattern - For creating and handling commands
+2. Command Pattern - For creating commands like - Add course command, Register command, Allot command and Cancel registration command
+3. Facade Pattern - CourseSchedulingManager is implemented using Facade pattern
+
+Scope Of improvement:
+We can add a task in the Application which will iterate through all the courses and set them as cancelled
+if the date is past the date of the course start date. We would not accept registrations for these courses.
+This task can be a cron job that runs periodically or can be invoked via some command.
